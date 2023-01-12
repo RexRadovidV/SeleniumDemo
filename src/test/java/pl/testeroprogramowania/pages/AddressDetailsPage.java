@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import pl.testeroprogramowania.models.Customer;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class AddressDetailsPage {
 
@@ -49,7 +50,7 @@ public class AddressDetailsPage {
         this.driver=driver;
     }
 
-    public OrderDetailsPage fillAddressDetails(Customer customer,String comments){
+    public OrderDetailsPage fillAddressDetails(Customer customer,String comments) throws InterruptedException {
         firstNameInput.sendKeys(customer.getFirstName());
         lastNameInput.sendKeys(customer.getLastName());
         companyNameInput.sendKeys(customer.getCompanyName());
@@ -61,7 +62,9 @@ public class AddressDetailsPage {
         billingPhoneInput.sendKeys(customer.getPhone());
         billingEmailInput.sendKeys(customer.getEmail());
         orderCommentsInput.sendKeys(comments);
+        Thread.sleep(1500);
         placeOrderButton.click();
+
 
 
 

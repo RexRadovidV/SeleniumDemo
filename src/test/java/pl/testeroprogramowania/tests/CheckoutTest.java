@@ -9,7 +9,7 @@ import pl.testeroprogramowania.pages.OrderDetailsPage;
 public class CheckoutTest extends BaseTest {
 
     @Test
-    public void checkoutTest() {
+    public void checkoutTest() throws InterruptedException {
 
         Customer customer = new Customer();
 

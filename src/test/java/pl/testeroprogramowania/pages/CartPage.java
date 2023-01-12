@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class CartPage {
 
-    @FindBy(partialLinkText = "Proceed to checkout")
+    @FindBy(xpath = "//div[@class='wc-proceed-to-checkout']//a")
     private WebElement proceedToCheckoutButton;
 
     private WebDriver driver;
@@ -17,8 +19,10 @@ public class CartPage {
         this.driver=driver;
     }
 
-    public AddressDetailsPage openAddressDetails(){
+    public AddressDetailsPage openAddressDetails() throws InterruptedException {
+        Thread.sleep(1000);
         proceedToCheckoutButton.click();
         return new AddressDetailsPage(driver);
+
     }
 }
